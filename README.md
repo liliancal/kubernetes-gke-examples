@@ -18,7 +18,8 @@ kubectl get pods
 kubectl get replicaset
 kubectl get all -o wide
 kubectl port-forward deployment/nginx-deployment 8080:80
-kubectl port-forward service/my-nginx 8080:80
+kubectl port-forward deployment/nginx-deployment 8080:8080 #KO
+kubectl port-forward service/my-nginx 8080:80 #KO
 kubectl port-forward service/my-nginx 8080:8080
 ```
 
@@ -44,6 +45,7 @@ kubectl delete -f 1-nginx-local.yaml
 ```
 kubectl apply -f 2-custom-image.yaml 
 kubectl port-forward deployment/myapp-deployment 8080:80
+kubectl port-forward service/service-myapp 80:8080
 kubectl delete deployment nginx-deployment
 kubectl delete service my-nginx
 ```
@@ -59,28 +61,35 @@ kubectl delete service my-nginx
 
 ## Exercice 4
 
+### Gestion de services externes
+```
+kubectl apply -f 4-a-external-service.yaml
+```
+
+## Exercice 5
+
 ### Déploiement GKE Hello World
 ```
 gcloud config set project <votreprojectid>
-kubectl apply -f 4-gke-hello-world.yaml
+kubectl apply -f 5-gke-hello-world.yaml
 ```
 
 Sources :
 * https://cloud.google.com/kubernetes-engine/docs/tutorials/http-balancer
 * https://logz.io/blog/containerized-app-gke/
 
-## Exercice 5
+## Exercice 6
 
 ### Déploiement GKE Image Docker Custom
 ```
 gcloud config set project <votreprojectid>
 kubectl create secret docker-registry regsecret --docker-server=<your-registry-server> --docker-username=<your-name> --docker-password=<your-pword> --docker-email=<your-email>
-kubectl apply -f 5-gke-deployment.yml
-kubectl apply -f 5-gke-ingress.yaml
-kubectl apply -f 5-gke-service.yaml
+kubectl apply -f 6-gke-deployment.yml
+kubectl apply -f 6-gke-ingress.yaml
+kubectl apply -f 6-gke-service.yaml
 ```
 
-## Exercice 6
+## Exercice 7
 
 ### Déploiement GKE Image Docker Custom avec GitlabCI
 * [Déploiement avec gitlab-ci](https://blog.searce.com/gitlab-ci-cd-to-deploy-applications-on-gke-using-shared-runner-47f8c42817ac)

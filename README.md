@@ -33,7 +33,10 @@ kubectl delete deployment nginx-deployment
 kubectl delete service my-nginx
 ```
 * ou
-```kubectl delete -f 1-nginx-local.yaml```
+
+```
+kubectl delete -f 1-nginx-local.yaml
+```
 
 ## Exercice 2
 

@@ -28,12 +28,12 @@ Sources :
 - [Explication port forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/)
 
 ### Suppression
-```kubectl delete deployment nginx-deployment
+```
+kubectl delete deployment nginx-deployment
 kubectl delete service my-nginx
 ```
 * ou
-```kubectl delete -f 1-nginx-local.yaml
-```
+```kubectl delete -f 1-nginx-local.yaml```
 
 ## Exercice 2
 

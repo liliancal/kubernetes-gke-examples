@@ -1,0 +1,13 @@
+--- 
+apiVersion: v1 
+kind: Pod 
+metadata:
+  name: nginx-squat 
+spec:
+  containers:
+  - name: port-squatter
+    image: nginx:alpine 
+    ports:
+      - name: exposed 
+        hostPort: 80 
+        containerPort: 80

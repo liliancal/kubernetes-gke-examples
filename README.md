@@ -53,7 +53,7 @@ kubectl delete service my-nginx
 
 ### Déploiement local Whoami avec un ingress
 ```
-kubectl apply -f 3-nginx-custom-not-ready.yaml
+kubectl apply -f 3-nginx-ingress.yaml
 kubectl port-forward deployment/myapp-deployment 8080:80
 kubectl delete deployment nginx-deployment
 kubectl delete service my-nginx

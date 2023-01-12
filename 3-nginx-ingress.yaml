@@ -2,13 +2,11 @@ apiVersion: v1
 kind: Service
 metadata:
   name: whoami
-
 spec:
   ports:
     - name: web
       port: 80
       targetPort: web
-
   selector:
     app: whoami
 ---
@@ -18,7 +16,6 @@ metadata:
   name: whoami
   labels:
     app: whoami
-
 spec:
   replicas: 1
   selector:
@@ -36,13 +33,19 @@ spec:
             - name: web
               containerPort: 80
 ---
-apiVersion: networking.k8s.io/v1
+apiVersion: networking.k8s.io/v1 
 kind: Ingress
 metadata:
-  name: whoami-ingress
+  name: whoami 
 spec:
-  defaultBackend:
-    service:
-      name: web
-      port:
-        number: 80
+  rules:
+    - host: kubernetes.docker.internal
+      http: 
+        paths:
+          - path: / 
+            pathType: Prefix 
+            backend:
+              service: 
+                name: whoami 
+                port:
+                  number: 80

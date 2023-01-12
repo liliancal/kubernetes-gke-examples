@@ -53,17 +53,22 @@ kubectl delete service my-nginx
 
 ### Déploiement local Whoami avec un ingress
 ```
+minikube addons enable ingress
 kubectl apply -f 3-nginx-ingress.yaml
 kubectl port-forward deployment/myapp-deployment 8080:80
 kubectl delete deployment nginx-deployment
 kubectl delete service my-nginx
 ```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.40.2/deploy/static/provider/cloud/deploy.yaml
+
 
 ## Exercice 4
 
 ### Gestion de services externes
 ```
 kubectl apply -f 4-a-external-service.yaml
+kubectl apply -f 4-b-external-service.yaml
+curl http://localhost:30123
 ```
 
 ## Exercice 5
@@ -87,6 +92,9 @@ kubectl create secret docker-registry regsecret --docker-server=<your-registry-s
 kubectl apply -f 6-gke-deployment.yml
 kubectl apply -f 6-gke-ingress.yaml
 kubectl apply -f 6-gke-service.yaml
+kubectl delete -f 6-gke-deployment.yml
+kubectl delete -f 6-gke-ingress.yaml
+kubectl delete -f 6-gke-service.yaml
 ```
 
 ## Exercice 7

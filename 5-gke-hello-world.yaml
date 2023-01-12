@@ -22,6 +22,7 @@ spec:
   selector:
     matchLabels:
       run: web
+  replicas: 2
   template:
     metadata:
       labels:

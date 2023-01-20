@@ -25,8 +25,11 @@ kubectl port-forward service/my-nginx 8080:8080
 
 Pour tester :
 - [Tester](http://localhost:8080/) 
+
 Sources :
-- [Explication port forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/)
+- [Port forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/)
+
+- [Différence entre service et deployment](https://matthewpalmer.net/kubernetes-app-developer/articles/service-kubernetes-example-tutorial.html)
 
 ### Suppression
 ```

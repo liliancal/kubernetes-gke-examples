@@ -98,6 +98,20 @@ Sources :
 ```
 gcloud config set project <votreprojectid>
 kubectl apply -f 4-gke-hello-world.yaml
+kubectl get pod
+kubectl get service
+kubectl get deployment
+```
+
+**Liste des ingress créés**
+*Il faut attendre quelques minutes qu'une adresse IP soit allouée à l'ingress + pour que l'appli soit accessible*
+```
+kubectl get ingress
+```
+
+**Test accès à l'app via l'ingress**
+```
+curl http://<url de votre loadbalancer>
 ```
 
 Sources :

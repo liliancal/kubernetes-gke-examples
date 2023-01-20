@@ -67,9 +67,20 @@ minikube addons enable ingress-dns
 kubectl apply -f 3-nginx-ingress.yaml
 ```
 
+**Liste des ingress créés**
+*Il faut attendre quelques minutes qu'une adresse IP soit allouée à l'ingress*
+```
+kubectl get ingress
+```
+
 **Lancement tunnel minikube pour accéder à l'ingress**
 ```
 minikube tunnel
+```
+
+**Test accès à l'app via l'ingress**
+```
+curl http://kubernetes.docker.internal
 ```
 
 **Suppression**
